@@ -1,0 +1,29 @@
+id: featureBreakdownFlow
+name: Feature Breakdown Flow
+purpose: Translate a feature idea into product requirements, epics, stories, and tasks.
+steps:
+  - id: requirements
+    agent: productManager
+    outputs:
+      - productRequirements
+
+  - id: epics
+    agent: productManager
+    dependsOn:
+      - requirements
+    outputs:
+      - epics
+
+  - id: stories
+    agent: sprintMaster
+    dependsOn:
+      - epics
+    outputs:
+      - stories
+
+  - id: tasks
+    agent: sprintMaster
+    dependsOn:
+      - stories
+    outputs:
+      - tasks

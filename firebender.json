@@ -1,0 +1,15 @@
+{
+  "agents": [
+    ".firebender/agents/supervisor.md",
+    ".firebender/agents/architect.md",
+    ".firebender/agents/committer.md",
+    ".firebender/agents/pusher.md",
+    ".firebender/agents/planner.md",
+    ".firebender/agents/implementer.md",
+    ".firebender/agents/reviewer.md",
+    ".firebender/agents/qa.md",
+    ".firebender/agents/docWriter.md",
+    ".firebender/agents/productManager.md",
+    ".firebender/agents/sprintMaster.md"
+  ]
+}

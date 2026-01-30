@@ -1,0 +1,90 @@
+id: agileDeliveryFlow
+name: Agile Delivery Flow
+purpose: Product requirements through delivery using agile breakdown.
+steps:
+  - id: requirements
+    agent: productManager
+    outputs:
+      - productRequirements
+
+  - id: epics
+    agent: productManager
+    dependsOn:
+      - requirements
+    outputs:
+      - epics
+
+  - id: stories
+    agent: sprintMaster
+    dependsOn:
+      - epics
+    outputs:
+      - stories
+
+  - id: tasks
+    agent: sprintMaster
+    dependsOn:
+      - stories
+    outputs:
+      - tasks
+
+  - id: plan
+    agent: planner
+    dependsOn:
+      - tasks
+    outputs:
+      - plan
+
+  - id: supervise
+    agent: supervisor
+    dependsOn:
+      - plan
+
+  - id: architectureReview
+    agent: architect
+    dependsOn:
+      - plan
+
+  - id: implement
+    agent: implementer
+    dependsOn:
+      - supervise
+      - architectureReview
+
+  - id: productReview
+    agent: productManager
+    dependsOn:
+      - implement
+
+  - id: supervisorReview
+    agent: supervisor
+    dependsOn:
+      - implement
+
+  - id: review
+    agent: reviewer
+    dependsOn:
+      - productReview
+      - supervisorReview
+
+  - id: qa
+    agent: qa
+    dependsOn:
+      - productReview
+      - supervisorReview
+
+  - id: docs
+    agent: docWriter
+    dependsOn:
+      - productReview
+      - supervisorReview
+
+  - id: commit
+    agent: committer
+    dependsOn:
+      - docs
+
+  - id: push
+    agent: pusher
+    dependsOn:
+      - commit

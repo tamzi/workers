@@ -1,0 +1,84 @@
+version: 1
+
+defaults:
+  basePrompt: agents/base/system.md
+  guardrails: agents/base/guardrails.md
+  toolsets:
+    - agents/tools/core.yaml
+  workflows:
+    - agents/workflows/deliveryFlow.yaml
+
+workflows:
+  - agents/workflows/deliveryFlow.yaml
+  - agents/workflows/productFlow.yaml
+  - agents/workflows/featureBreakdownFlow.yaml
+  - agents/workflows/agileDeliveryFlow.yaml
+  - agents/workflows/techDebtFlow.yaml
+  - agents/workflows/researchSpikeFlow.yaml
+
+agents:
+  - id: supervisor
+    name: Supervisor
+    role: Management
+    description: Validate plans and readiness before and after implementation.
+    profile: agents/profiles/supervisor.yaml
+
+  - id: architect
+    name: Architect
+    role: Architecture
+    description: Review architecture alignment before implementation.
+    profile: agents/profiles/architect.yaml
+
+  - id: committer
+    name: Committer
+    role: Release
+    description: Prepare and validate commits against commit rules.
+    profile: agents/profiles/committer.yaml
+
+  - id: pusher
+    name: Pusher
+    role: Release
+    description: Prepare push checklist and command without executing.
+    profile: agents/profiles/pusher.yaml
+
+  - id: planner
+    name: Planner
+    role: Planning
+    description: Clarify requirements and produce implementation plans.
+    profile: agents/profiles/planner.yaml
+
+  - id: implementer
+    name: Implementer
+    role: Implementation
+    description: Make code changes following the approved plan.
+    profile: agents/profiles/implementer.yaml
+
+  - id: reviewer
+    name: Reviewer
+    role: Review
+    description: Review changes without implementing.
+    profile: agents/profiles/reviewer.yaml
+
+  - id: qa
+    name: QA
+    role: Testing
+    description: Validate behavior, tests, and quality gates.
+    profile: agents/profiles/qa.yaml
+
+  - id: docWriter
+    name: Documentation
+    role: Documentation
+    description: Update docs and ensure documentation rules compliance.
+    profile: agents/profiles/docWriter.yaml
+
+  - id: productManager
+    name: Product Manager
+    role: Product
+    description: Maintain PRD, research, and product direction.
+    profile: agents/profiles/productManager.yaml
+
+  - id: sprintMaster
+    name: Sprint Master
+    role: Sprint Planning
+    description: Plan sprints and maintain delivery cadence.
+    profile: agents/profiles/sprintMaster.yaml

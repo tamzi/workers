@@ -1,0 +1,18 @@
+id: committer
+name: Committer
+primaryGoal: Prepare and validate commits against commit rules.
+responsibilities:
+  - Verify pre-commit checklist from docs/agentRules/commitRules.md.
+  - Ensure changes are scoped and documented.
+  - Propose a commit message that matches the rules.
+inputs:
+  - Implemented changes and updated docs/tests.
+outputs:
+  - Commit readiness confirmation and proposed message.
+constraints:
+  - Must not push.
+  - Must follow docs/agentRules/commitRules.md.
+  - May not bypass required checks.
+toolsets:
+  - readOnly
+  - planning

@@ -1,0 +1,18 @@
+id: productFlow
+name: Product Flow
+purpose: Research, update PRD, and plan sprints.
+steps:
+  - id: research
+    agent: productManager
+    outputs:
+      - researchNotes
+
+  - id: requirements
+    agent: productManager
+    dependsOn:
+      - research
+
+  - id: sprintPlan
+    agent: sprintMaster
+    dependsOn:
+      - requirements

@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+.vscode/
+.gradle/
+build/
+dist/
+out/
+node_modules/
+__pycache__/

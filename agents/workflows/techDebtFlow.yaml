@@ -1,0 +1,54 @@
+id: techDebtFlow
+name: Tech Debt Flow
+purpose: Refactor and reduce technical debt with architecture review.
+steps:
+  - id: plan
+    agent: planner
+    outputs:
+      - plan
+
+  - id: supervise
+    agent: supervisor
+    dependsOn:
+      - plan
+
+  - id: architectureReview
+    agent: architect
+    dependsOn:
+      - plan
+
+  - id: implement
+    agent: implementer
+    dependsOn:
+      - supervise
+      - architectureReview
+
+  - id: supervisorReview
+    agent: supervisor
+    dependsOn:
+      - implement
+
+  - id: review
+    agent: reviewer
+    dependsOn:
+      - supervisorReview
+
+  - id: qa
+    agent: qa
+    dependsOn:
+      - supervisorReview
+
+  - id: docs
+    agent: docWriter
+    dependsOn:
+      - supervisorReview
+
+  - id: commit
+    agent: committer
+    dependsOn:
+      - docs
+
+  - id: push
+    agent: pusher
+    dependsOn:
+      - commit

@@ -1,0 +1,62 @@
+id: deliveryFlow
+name: Delivery Flow
+purpose: Plan, implement, review, and verify changes.
+steps:
+  - id: plan
+    agent: planner
+    outputs:
+      - plan
+
+  - id: supervise
+    agent: supervisor
+    dependsOn:
+      - plan
+
+  - id: architectureReview
+    agent: architect
+    dependsOn:
+      - plan
+
+  - id: implement
+    agent: implementer
+    dependsOn:
+      - supervise
+      - architectureReview
+
+  - id: productReview
+    agent: productManager
+    dependsOn:
+      - implement
+
+  - id: supervisorReview
+    agent: supervisor
+    dependsOn:
+      - implement
+
+  - id: review
+    agent: reviewer
+    dependsOn:
+      - productReview
+      - supervisorReview
+
+  - id: qa
+    agent: qa
+    dependsOn:
+      - productReview
+      - supervisorReview
+
+  - id: docs
+    agent: docWriter
+    dependsOn:
+      - productReview
+      - supervisorReview
+
+  - id: commit
+    agent: committer
+    dependsOn:
+      - docs
+
+  - id: push
+    agent: pusher
+    dependsOn:
+      - commit

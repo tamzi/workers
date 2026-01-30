@@ -1,0 +1,50 @@
+version: 1
+
+toolsets:
+  - id: readOnly
+    description: Read-only access to repository content.
+    tools:
+      - repoRead
+      - search
+
+  - id: reviewOnly
+    description: Review changes and diffs without writing.
+    tools:
+      - repoRead
+      - diff
+      - search
+
+  - id: writeAccess
+    description: Modify repository content.
+    tools:
+      - repoRead
+      - repoWrite
+      - search
+      - shell
+      - git
+
+  - id: buildAndTest
+    description: Run build, lint, and tests.
+    tools:
+      - shell
+      - build
+      - test
+
+  - id: docsOnly
+    description: Update documentation and indexes.
+    tools:
+      - repoRead
+      - repoWrite
+      - search
+
+  - id: planning
+    description: Planning and task breakdown support.
+    tools:
+      - repoRead
+      - search
+
+  - id: research
+    description: External research and product context gathering.
+    tools:
+      - web
+      - repoRead

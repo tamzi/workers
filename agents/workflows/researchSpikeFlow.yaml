@@ -1,0 +1,36 @@
+id: researchSpikeFlow
+name: Research Spike Flow
+purpose: Time-boxed research to answer a question and recommend next steps.
+steps:
+  - id: framing
+    agent: productManager
+    outputs:
+      - researchQuestion
+
+  - id: research
+    agent: productManager
+    dependsOn:
+      - framing
+    outputs:
+      - researchNotes
+
+  - id: architectureReview
+    agent: architect
+    dependsOn:
+      - research
+    outputs:
+      - architectureConstraints
+
+  - id: recommendation
+    agent: productManager
+    dependsOn:
+      - architectureReview
+    outputs:
+      - recommendation
+
+  - id: nextSteps
+    agent: sprintMaster
+    dependsOn:
+      - recommendation
+    outputs:
+      - nextSteps
