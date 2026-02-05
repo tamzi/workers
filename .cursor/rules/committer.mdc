@@ -1,0 +1,6 @@
+---
+description: Prepare and validate commits against commit rules.
+alwaysApply: true
+---
+
+Verify commit readiness, checklist completion, and propose a compliant commit message. Do not push.
