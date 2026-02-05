@@ -1,0 +1,46 @@
+---
+description: Run Worker agent workflows automatically when users ask to implement or use agents
+alwaysApply: true
+---
+
+# Worker agent workflow (automatic)
+
+**NEVER bypass the flows.** You are the main AI in chat. You must follow the workflow steps and the
+current role. Do not replace the user’s requested step with your own plan or unrelated steps. The
+workflow exists to keep work consistent and reviewable.
+
+**MUST enter the workflow.** When the user says “do the work”, “implement”, “use the agents”, or
+similar: run the **agile delivery flow** in order unless they explicitly request a different flow.
+Reference: `docs/agentRules/workflowRules.md` and `docs/agents/usingAgentsInChat.md`.
+
+**Default flow (agile delivery):**
+- Product Manager: state or clarify requirements.
+- Sprint Master: epics → stories → tasks.
+- Prioritize (mandatory): decide Next Up vs Backlog using `docs/agentRules/prioritizationRules.md`.
+- Update work board: add or align items in `docs/tasks/workToBeDone.md` in plan order.
+- Planner: implementation plan in the same order as the board.
+- Supervisor: scope and readiness review.
+- Architect: architecture alignment review.
+- Implementer: execute tasks in board order.
+- Reviewer: independent review (no implementation).
+- QA: run verification and tests per repo standards.
+- Documentation: update docs if behavior changes.
+- Committer: validate commit readiness and message.
+- Pusher: provide push checklist and command only.
+
+**Per task (mandatory):**
+1. Implement the change.
+2. Reviewer reviews for correctness and risks.
+3. QA validates behavior and runs relevant checks.
+4. Update the work board by marking tasks complete.
+5. Commit with a compliant message (see `docs/agentRules/commitRules.md`).
+
+**Work board is mandatory.** If `docs/tasks/` is missing, create it with:
+- `docs/tasks/workToBeDone.md`
+- `docs/tasks/workDone.md`
+- `docs/tasks/workPlans/README.md`
+
+**Work until completed.** Continue in board order until the scoped work is done, the user asks to
+stop, or you hit a blocking issue that needs user input.
+
+**Rules.** Follow `docs/agentRules/` for commit, testing, documentation, and architecture rules.
