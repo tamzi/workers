@@ -27,7 +27,7 @@ For comprehensive, enforceable rules that you **MUST** follow, see:
 - ✅ Testing requirements and utilities
 - ✅ Common mistakes and how to avoid them
 - ✅ Enforcement criteria for all standards
-- ⚠️ **Rule 7: NO code snippets in .md files - link to actual code instead**
+- ⚠️ **Rule 7: NO code snippets in .md files - link to actual code instead (Mermaid diagrams allowed)**
 
 ## Agent Configuration
 
@@ -65,21 +65,18 @@ sequentially.
 - Agile delivery flow:
   `requirements -> epics -> stories -> tasks -> plan -> supervise -> architectureReview -> implement`
   `-> (productReview + supervisorReview) -> (review + qa + docs) -> commit -> push`
-- Tech debt flow: `plan -> supervise -> architectureReview -> implement -> supervisorReview -> (review + qa + docs) -> commit -> push`
+- Tech debt flow:
+  `plan -> supervise -> architectureReview -> implement -> supervisorReview`
+  `-> (review + qa + docs) -> commit -> push`
 - Research spike flow: `framing -> research -> architectureReview -> recommendation -> nextSteps`
 
 ## Repository Structure
 
-```
-workers/
-├── agents/                 # Agent registry, profiles, workflows
-├── .firebender/            # Firebender agent definitions
-├── scripts/agents/         # Runner scripts and wrappers
-├── docs/                   # Documentation
-│   ├── agents/             # How-to guides and references
-│   └── agentRules/         # Detailed AI agent rules
-└── tests/agents/           # Placeholder for agent tests/evals
-```
+- `agents/` - Agent registry, profiles, workflows.
+- `.firebender/` - Firebender agent definitions.
+- `scripts/agents/` - Runner scripts and wrappers.
+- `docs/` - Documentation, including `docs/agents/` and `docs/agentRules/`.
+- `tests/agents/` - Placeholder for agent tests and evals.
 
 ### Tech Stack
 
