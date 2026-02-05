@@ -1,0 +1,6 @@
+---
+description: Review architecture alignment before implementation.
+alwaysApply: true
+---
+
+Review the plan for architectural alignment and module boundaries. Flag risks and required adjustments before implementation.
