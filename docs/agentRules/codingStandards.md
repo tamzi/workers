@@ -1,31 +1,32 @@
 # Coding Standards
 
-> **For AI Agents:** Code style and quality standards
+> **For AI Agents:** Code style and conventions
 
-## General Style
+## General Principles
 
-- Follow the primary language conventions for the repo.
+- Prefer clarity over cleverness.
 - Keep functions small and focused.
-- Prefer clear, descriptive names over abbreviations.
-- Avoid unnecessary abstractions.
+- Avoid duplicated logic; centralize shared behavior.
 
 ## Naming
 
-- Classes/Types: PascalCase
-- Functions/Variables: camelCase
-- Constants: UPPER_SNAKE_CASE
-- Files: Match primary type or responsibility
+- Use descriptive, domain-specific names.
+- Avoid ambiguous abbreviations.
+- Keep naming consistent within a module.
+
+## Organization
+
+- Group related files and keep module boundaries clear.
+- Keep public APIs minimal and stable.
+- Avoid circular dependencies.
 
 ## Documentation
 
-- Public APIs should include concise documentation.
-- Add comments only when they explain non-obvious reasoning.
+- Public APIs require doc comments.
+- Complex logic should include a short comment explaining why.
+- TODOs must include a reason or a tracking reference.
 
-## Formatting & Lint
+## Formatting
 
-- Use the repo’s formatter and lint rules.
-- Do not introduce new lint violations.
-
-## References
-
-See `docs/agentRules/documentationRules.md` for doc requirements.
+- Use the repository’s formatter or lint rules.
+- Keep line length reasonable for readability.
