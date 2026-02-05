@@ -4,7 +4,8 @@
 
 ## Rule
 
-Markdown documentation must not contain source code snippets. Instead:
+Markdown documentation must not contain source code snippets. Exception: Mermaid diagrams are
+allowed for workflow or architecture visuals and must use `mermaid` fenced blocks. Instead:
 
 - Link to real files and functions.
 - Describe behavior and intent in plain language.
