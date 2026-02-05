@@ -2,7 +2,7 @@
 
 Use this checklist when cleaning documentation:
 
-- Remove code snippets and replace with links to real files.
+- Remove code snippets and replace with links to real files. Mermaid diagrams are allowed.
 - Remove duplicate or outdated sections.
 - Ensure naming rules (camelCase) are followed.
 - Update `docs/README.md` if any doc is added or removed.
