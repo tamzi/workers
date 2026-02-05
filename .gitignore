@@ -1,9 +1,61 @@
-.DS_Store
-.idea/
-.vscode/
-.gradle/
-build/
-dist/
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
 out/
-node_modules/
-__pycache__/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+.classpath
+.project
+
+# Windows thumbnail db
+.DS_Store
+
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle.kts
+*.iml
+.idea/*
+!.idea/copyright
+# Keep the code styles.
+!/.idea/codeStyles
+/.idea/codeStyles/*
+!/.idea/codeStyles/Project.xml
+!/.idea/codeStyles/codeStyleConfig.xml
+
+# Gradle cache
+.gradle
+
+# Sandbox stuff
+_sandbox
+
+# Android Studio captures folder
+captures/
+
+# Kotlin
+.kotlin
+
+.qodo
+
+# Sample broker PDFs (do not commit)
+docs/product/test/*.pdf
+
+# Cursor IDE settings
+.cursor/
+
+# Room database schemas
+app/schemas/
+
+/.idea/
