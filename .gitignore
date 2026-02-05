@@ -52,9 +52,6 @@ captures/
 # Sample broker PDFs (do not commit)
 docs/product/test/*.pdf
 
-# Cursor IDE settings
-.cursor/
-
 # Room database schemas
 app/schemas/
 
