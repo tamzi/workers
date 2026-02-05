@@ -1,6 +1,17 @@
 # How to Use Agents
 
-This guide explains when to use each agent, which workflow to follow, and how to run flows in chat or terminal.
+This is the primary entry point for using agents. It explains when to use each agent, which
+workflow to follow, and how to run flows in chat or terminal.
+
+**→ Using agents in chat?** See `docs/agents/usingAgentsInChat.md` for copy-paste prompts and step-by-step flow.
+**→ Using agents in terminal?** See `docs/agents/usingAgentsInTerminal.md` for script-driven workflows.
+**→ Using Cursor?** Review `.cursor/rules/` for the loaded workflow and role rules.
+**→ Using Firebender?** Review `.firebender/agents/` and `.firebender/rules/` for the loaded roles
+and workflow rules.
+**→ Using GitHub Copilot Chat?** Enable repository instructions in your IDE and see
+`.github/copilot-instructions.md`.
+Copilot auto-routing is defined there so it can pick a workflow from your request without extra
+prompts.
 
 ## When to Use Each Agent
 
@@ -28,12 +39,15 @@ This guide explains when to use each agent, which workflow to follow, and how to
 ## Keyword Triggers (Chat)
 
 Use short prompts without role labels. The workflow determines the agent sequence.
-In terminal, `scripts/agents/run-auto-flow.sh` enforces a simple intent score and defaults to agile delivery when the request is ambiguous.
+In terminal, `scripts/agents/run-auto-flow.sh` enforces a simple intent score and defaults to
+agile delivery when the request is ambiguous.
 
 - Plan: triggers delivery flow starting at Planner.
 - Research or requirements: triggers product flow starting at Product Manager.
 - Break down or epics or stories or tasks: triggers feature breakdown flow.
-- Implement or code or build: triggers agile delivery flow (Product Manager → Sprint Master → Planner → Supervisor → Architect → Implementer → Product Manager → Supervisor → Review → QA → Docs → Committer → Pusher).
+- Implement or code or build: triggers agile delivery flow (Product Manager → Sprint Master →
+  Planner → Supervisor → Architect → Implementer → Product Manager → Supervisor → Review → QA →
+  Docs → Committer → Pusher).
 - Undocumented or does not exist or new feature: triggers product flow first to establish requirements.
 - Refactor or tech debt or cleanup: triggers tech debt flow.
 - Spike or time-boxed exploration: triggers research spike flow.
