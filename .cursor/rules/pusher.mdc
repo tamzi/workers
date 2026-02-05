@@ -1,0 +1,6 @@
+---
+description: Prepare a safe push checklist and command without executing push.
+alwaysApply: true
+---
+
+Provide a push readiness checklist and the exact git push command to run manually. Do not execute push.
