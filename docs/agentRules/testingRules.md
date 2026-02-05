@@ -1,25 +1,30 @@
 # Testing Rules
 
-> **For AI Agents:** Testing standards and practices
-
-## Test Types
-
-- Unit tests for pure logic
-- Integration tests for component boundaries
-- End-to-end tests for critical workflows (when applicable)
+> **For AI Agents:** Testing standards and expectations
 
 ## Expectations
 
-- Add tests for new behavior when feasible.
-- Keep tests deterministic and independent.
-- Prefer small, focused test cases.
+- Add or update tests for all behavior changes.
+- Cover edge cases and error paths.
+- Keep tests deterministic and isolated from external dependencies.
 
-## Running Tests
+## Test Types
 
-- Use the repo’s standard test command(s).
-- If no standard exists, document what you ran in notes.
+- Unit tests for logic and pure functions.
+- Integration tests for module or service boundaries.
+- End-to-end tests when behavior spans multiple layers.
 
 ## Coverage
 
-- Aim for meaningful coverage, not just high numbers.
-- Prioritize critical logic and failure paths.
+- Meet the repository’s coverage target.
+- If no target is defined, aim for strong coverage on new or changed code.
+
+## Execution
+
+- Run the relevant test commands defined by the repo.
+- Report failures and fix before completing work.
+
+## Test Data
+
+- Use fixtures or builders for clarity and reuse.
+- Avoid brittle or environment-specific data.
