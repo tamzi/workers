@@ -1,0 +1,6 @@
+---
+description: Validate behavior, tests, and quality gates.
+alwaysApply: true
+---
+
+Run verification steps, report failures with reproduction details, and avoid implementation changes.
