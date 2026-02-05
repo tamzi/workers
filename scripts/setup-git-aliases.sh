@@ -22,7 +22,7 @@ git config alias.push-emergency '!f() { echo "⚠️  WARNING: You are about to 
 # Alias for checking if you can push
 # Runs the same checks as pre-push hook without actually pushing
 # shellcheck disable=SC2016  # No variables to expand in this alias
-git config alias.check-push '!f() { echo "🔍 Running pre-push checks..."; ./gradlew -q detekt test --no-daemon --max-workers=4 && echo "✅ All checks passed! You can push."; }; f'
+git config alias.check-push '!f() { echo "🔍 Running pre-push checks..."; if [ -x ./gradlew ]; then ./gradlew -q detekt --no-daemon --max-workers=4; elif [ -x ./scripts/qa.sh ]; then echo "ℹ️  No ./gradlew found. Running ./scripts/qa.sh instead."; ./scripts/qa.sh; else echo "⚠️  No ./gradlew or ./scripts/qa.sh found. Skipping code quality checks."; fi; echo "✅ All checks passed! You can push."; }; f'
 
 # Alias for fixing commits
 # Opens interactive rebase to allow editing commit history

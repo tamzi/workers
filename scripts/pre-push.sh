@@ -39,10 +39,12 @@ if [ -z "$input" ]; then
     exit 0
 fi
 
+remote_name="${1:-origin}"
+
 # Check if this is a new branch being pushed for the first time
 # Extract branch info from the input
 while IFS= read -r line; do
-    read -r local_ref local_sha remote_ref remote_sha <<< "$line"
+    read -r local_ref local_sha _ remote_sha <<< "$line"
     
     if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
         # Handle delete - no commits to check
@@ -51,8 +53,6 @@ while IFS= read -r line; do
     
     # Extract branch name from refs/heads/branch-name
     branch_name="${local_ref#refs/heads/}"
-    remote_name="${remote_ref%%/*}"  # Extract remote name (usually 'origin')
-    
     # Check if remote branch exists
     if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
         echo -e "${BLUE}ℹ️  New branch detected: ${branch_name}${NC}" >&2
@@ -74,7 +74,7 @@ done <<< "$input"
 # Process each line for validation
 # Use process substitution to avoid subshell and allow exit to work properly
 while IFS= read -r line; do
-    read -r local_ref local_sha remote_ref remote_sha <<< "$line"
+    read -r local_ref local_sha _ remote_sha <<< "$line"
     
     if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
         # Handle delete - no commits to check
@@ -336,7 +336,7 @@ while IFS= read -r line; do
             echo "     - No prefixes like 'feat:' or 'docs:'" >&2
             echo "     - No body/details in commit messages" >&2
             echo "" >&2
-            echo "Need help? Run: ./gradlew detekt test" >&2
+            echo "Need help? Run: ./gradlew detekt test (or ./scripts/qa.sh)" >&2
             echo "to see detailed error messages" >&2
             echo "" >&2
             echo -e "${YELLOW}⚠️  NOTE: Using 'git push --no-verify' is FORBIDDEN${NC}" >&2
@@ -363,9 +363,16 @@ echo "" >&2
 # Note: Using --no-daemon to ensure gradle doesn't leave a daemon running
 # Using --max-workers=4 to limit resource usage
 # Temporarily skipping test due to Gradle configuration issue (will be fixed in follow-up)
-./gradlew -q \
-  detekt \
-  --no-daemon --max-workers=4
+if [ -x "./gradlew" ]; then
+  ./gradlew -q \
+    detekt \
+    --no-daemon --max-workers=4
+elif [ -x "./scripts/qa.sh" ]; then
+  echo -e "${BLUE}ℹ️  No ./gradlew found. Running ./scripts/qa.sh instead.${NC}" >&2
+  ./scripts/qa.sh
+else
+  echo -e "${YELLOW}⚠️  No ./gradlew or ./scripts/qa.sh found. Skipping code quality checks.${NC}" >&2
+fi
   
 # TODO: Re-enable tests once Gradle test configuration is fixed
 # test \
