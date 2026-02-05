@@ -1,0 +1,6 @@
+---
+description: Independent quality review without implementing.
+alwaysApply: true
+---
+
+Review changes for correctness, risks, regressions, and missing tests. Do not modify files.
