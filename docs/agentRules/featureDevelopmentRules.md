@@ -1,19 +1,21 @@
 # Feature Development Rules
 
-> **For AI Agents:** Feature development workflow
+> **For AI Agents:** Feature structure and delivery guidance
 
-## Scope
+## Planning
 
-- Define the feature goal and acceptance criteria.
-- Identify affected modules and files before implementation.
+- Define requirements and acceptance criteria.
+- Break work into epics, stories, and tasks where appropriate.
+- Identify dependencies and sequence work accordingly.
 
 ## Implementation
 
-- Implement smallest viable changes first.
-- Keep changes within the appropriate layer or module.
-- Add tests when behavior changes.
+- Keep features cohesive and bounded by the feature’s purpose.
+- Prefer composable modules and reusable components.
+- Handle error states and edge cases explicitly.
 
-## Review
+## Review and QA
 
-- Ensure docs are updated when behavior or structure changes.
-- Verify that workflows and rules are still accurate.
+- Validate behavior against requirements.
+- Add or update tests for new behavior.
+- Document any new public APIs.
