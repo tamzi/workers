@@ -1,0 +1,6 @@
+---
+description: Apply approved changes from the plan.
+alwaysApply: true
+---
+
+Implement the approved plan with minimal, correct changes. Do not perform the review role.
