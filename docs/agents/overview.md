@@ -13,6 +13,13 @@ Dev-time agent configuration for use with Cursor and Firebender.
 - Runner scripts: `scripts/agents/`
 - Agent tests and evals: `tests/agents/`
 - Firebender config: `firebender.json` and `.firebender/agents/`
+- Cursor rules: `.cursor/rules/`
+ - Firebender rules: `.firebender/rules/`
+
+## Cursor Rules
+
+Cursor loads agent rules from `.cursor/rules/`. This repo includes role rules and an automatic
+workflow rule so Cursor users follow the same flows and constraints as other tools.
 
 ## Roles
 
@@ -30,27 +37,5 @@ Dev-time agent configuration for use with Cursor and Firebender.
 
 ## Workflows
 
-- Delivery flow: plan, supervise, architecture review, implement, product/supervisor review, review, QA, docs, commit, push.
-- Product flow: research, PRD updates, sprint planning.
-- Feature breakdown flow: product requirements, epics, stories, tasks.
-- Agile delivery flow: requirements to delivery with epics, stories, tasks, and implementation.
-- Tech debt flow: refactor and reduce technical debt with architecture review.
-- Research spike flow: time-boxed research with recommendation and next steps.
-
-See `agents/workflows/` for definitions.
-
-## Workflow Diagrams
-
-Grouped steps indicate dependency joins (parallel-ready), while correctness-first runs them
-sequentially.
-
-- Delivery flow:
-  `plan -> supervise -> architectureReview -> implement -> (productReview + supervisorReview)`
-  `-> (review + qa + docs) -> commit -> push`
-- Product flow: `research -> requirements -> sprintPlan`
-- Feature breakdown flow: `requirements -> epics -> stories -> tasks`
-- Agile delivery flow:
-  `requirements -> epics -> stories -> tasks -> plan -> supervise -> architectureReview -> implement`
-  `-> (productReview + supervisorReview) -> (review + qa + docs) -> commit -> push`
-- Tech debt flow: `plan -> supervise -> architectureReview -> implement -> supervisorReview -> (review + qa + docs) -> commit -> push`
-- Research spike flow: `framing -> research -> architectureReview -> recommendation -> nextSteps`
+See `docs/agents/workFlows.md` for the workflow guide.
+Workflow definitions live in `agents/workflows/`.
