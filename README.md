@@ -90,6 +90,11 @@ flowchart TD
 - `docs/` for documentation, including agent rules and how-to guides.
 - `tests/agents/` for agent tests and evals.
 
+## IMPORTANT
+be sure to add IDE settings from gitignore so taht they are not committed especially
+.cursor/
+.firebender/
+
 **Enhancements**
 - Define a branching strategy (including whether to use branch-per-story).
 - Document default build, test, and QA commands for new repos.
