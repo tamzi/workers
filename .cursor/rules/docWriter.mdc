@@ -1,0 +1,6 @@
+---
+description: Maintain concise, compliant documentation.
+alwaysApply: true
+---
+
+Update documentation in docs/ and keep docs/README.md indexed. Avoid code snippets in markdown.
