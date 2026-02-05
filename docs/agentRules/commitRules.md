@@ -4,24 +4,22 @@
 
 ## Format
 
-```
-<Subject: past tense, concise, no period>
-```
+- Subject line in past tense, concise, and without a trailing period.
+- Keep the subject under 50 characters when possible.
 
-## Core Rules
+## Scope
 
-- Use past tense (Added, Fixed, Updated).
-- Keep the subject under 50 characters.
-- Do not add a trailing period.
 - One logical change per commit.
 - One documentation file per commit.
-- Do not push automatically.
+- Split commits by layer or concern when needed.
 
 ## Pre-Commit Checklist
 
 - Review actual diffs before committing.
-- Ensure no secrets are included.
-- Ensure doc rules are followed.
+- Ensure tests and checks relevant to the change have run.
+- Confirm documentation rules are followed.
+- Ensure git hooks are installed and passing (see `scripts/README.md`).
+- Verify no secrets or credentials are included.
 
 ## Push Rules
 
